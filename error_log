@@ -1,0 +1,197 @@
+[08-Mar-2026 15:35:32 UTC] PHP Warning:  require(/home/mrbeat/public_html/mr-beat-admin/app/bootstrap.php): Failed to open stream: No such file or directory in /home/mrbeat/public_html/mr-beat-admin/ticket_send.php on line 2
+[08-Mar-2026 15:35:32 UTC] PHP Warning:  require(/home/mrbeat/public_html/mr-beat-admin/app/bootstrap.php): Failed to open stream: No such file or directory in /home/mrbeat/public_html/mr-beat-admin/ticket_send.php on line 2
+[08-Mar-2026 15:35:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mrbeat/public_html/mr-beat-admin/app/bootstrap.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/mrbeat/public_html/mr-beat-admin/ticket_send.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/mrbeat/public_html/mr-beat-admin/ticket_send.php on line 2
+[08-Mar-2026 15:35:35 UTC] PHP Warning:  require(/home/mrbeat/public_html/mr-beat-admin/app/bootstrap.php): Failed to open stream: No such file or directory in /home/mrbeat/public_html/mr-beat-admin/ticket_send.php on line 2
+[08-Mar-2026 15:35:35 UTC] PHP Warning:  require(/home/mrbeat/public_html/mr-beat-admin/app/bootstrap.php): Failed to open stream: No such file or directory in /home/mrbeat/public_html/mr-beat-admin/ticket_send.php on line 2
+[08-Mar-2026 15:35:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mrbeat/public_html/mr-beat-admin/app/bootstrap.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/mrbeat/public_html/mr-beat-admin/ticket_send.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/mrbeat/public_html/mr-beat-admin/ticket_send.php on line 2
+[08-Mar-2026 18:47:03 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'currency' at row 1 in /home/mrbeat/public_html/mr-beat-admin/dashboard.php:1735
+Stack trace:
+#0 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(1735): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/mrbeat/public_html/mr-beat-admin/dashboard.php on line 1735
+[08-Mar-2026 18:47:09 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'currency' at row 1 in /home/mrbeat/public_html/mr-beat-admin/dashboard.php:1735
+Stack trace:
+#0 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(1735): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/mrbeat/public_html/mr-beat-admin/dashboard.php on line 1735
+[10-Mar-2026 16:57:57 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:00 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:01 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:02 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:02 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:09 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:09 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:12 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:12 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:15 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:16 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:19 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:19 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:22 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:22 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:28 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:28 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:57 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:58:57 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:59:01 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:59:01 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:59:05 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:59:05 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:59:09 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:59:09 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:59:17 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:59:20 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 16:59:24 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:03:53 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:03:53 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:23:43 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:23:43 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:23:52 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:23:53 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:23:57 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:23:57 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:24:02 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:24:02 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:24:05 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 17:24:06 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 18:37:12 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 18:37:12 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 18:37:56 Africa/Cairo] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in /home/mrbeat/public_html/app/bootstrap.php on line 17
+[10-Mar-2026 18:37:56 Africa/Cairo] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated after headers have already been sent in /home/mrbeat/public_html/mr-beat-admin/login.php on line 62
+[10-Mar-2026 18:37:56 Africa/Cairo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mrbeat/public_html/app/bootstrap.php:17) in /home/mrbeat/public_html/mr-beat-admin/login.php on line 69
+[12-Mar-2026 16:12:36 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:37 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:37 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:38 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:41 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:43 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:45 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:46 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:48 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:48 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:49 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:50 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:52 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:52 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:53 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:53 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:55 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:12:55 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:13:08 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[12-Mar-2026 16:15:15 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/mrbeat/public_html/app/bootstrap.php:59
+Stack trace:
+#0 /home/mrbeat/public_html/app/bootstrap.php(59): PDO->__construct('mysql:host=127....', 'root', '', Array)
+#1 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(133): mr_db()
+#2 {main}
+  thrown in /home/mrbeat/public_html/app/bootstrap.php on line 59
+[07-Apr-2026 11:19:56 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ali' for key 'username' in /home/mrbeat/public_html/mr-beat-admin/dashboard.php:633
+Stack trace:
+#0 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(633): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/mrbeat/public_html/mr-beat-admin/dashboard.php on line 633
+[07-Apr-2026 11:20:00 Africa/Cairo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ali' for key 'username' in /home/mrbeat/public_html/mr-beat-admin/dashboard.php:633
+Stack trace:
+#0 /home/mrbeat/public_html/mr-beat-admin/dashboard.php(633): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/mrbeat/public_html/mr-beat-admin/dashboard.php on line 633

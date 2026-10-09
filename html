@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1e3a8a" id="metaTheme">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>K-Base B042 Saber — Prepared by Hakim Saad</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%231e3a8a' rx='80'/><polygon points='40,200 256,80 472,200' fill='%23ffd700'/><rect x='40' y='200' width='432' height='35' fill='%23ffd700'/><rect x='80' y='235' width='35' height='170' fill='%23ffd700'/><rect x='155' y='235' width='35' height='170' fill='%23ffd700'/><rect x='230' y='235' width='35' height='170' fill='%23ffd700'/><rect x='305' y='235' width='35' height='170' fill='%23ffd700'/><rect x='380' y='235' width='35' height='170' fill='%23ffd700'/><rect x='40' y='405' width='432' height='40' fill='%23ffd700'/></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+
+            /* Light theme - banque misr inspired */
+            --bg-primary: #f5f7fb;
+            --bg-card: #ffffff;
+            --bg-soft: #f8fafc;
+            --bg-input: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --border-soft: #eef2f7;
+            --accent: #1e3a8a;
+            --accent-light: #dbeafe;
+            --accent-soft: #eff6ff;
+            --accent-hover: #1e40af;
+            --accent-glow: rgba(30, 58, 138, 0.15);
+            --gold: #d4af37;
+            --gold-light: #f5e9b8;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06);
+            --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.08);
+            --shadow-xl: 0 20px 50px rgba(15, 23, 42, 0.12);
+            --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+            --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f5e9b8 50%, #d4af37 100%);
+            --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0f1e;
+            --bg-card: #131b2e;
+            --bg-soft: #1a2236;
+            --bg-input: #0f1729;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --border-color: #1e293b;
+            --border-soft: #1a2236;
+            --accent: #3b82f6;
+            --accent-light: #1e3a8a;
+            --accent-soft: #172554;
+            --accent-hover: #2563eb;
+            --accent-glow: rgba(59, 130, 246, 0.2);
+            --gold: #fbbf24;
+            --gold-light: #78350f;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6);
+            --gradient-primary: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            --gradient-card: linear-gradient(135deg, #131b2e 0%, #1a2236 100%);
+        }
+
+        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            -webkit-text-size-adjust: 100%;
+            font-feature-settings: "kern", "liga";
+        }
+        html, body { height: 100%; }
+        button { cursor: pointer; font-family: inherit; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ===== Scrollbar ===== */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 6px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        /* ===== Animations ===== */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes pulse-soft { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        @keyframes goldShine { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+        .bank-misr-logo { background: var(--gradient-gold); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: goldShine 8s ease infinite; font-weight: 900; }
+        .shimmer-text { background: linear-gradient(90deg, #d4af37, #ffffff, #d4af37); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 6s infinite linear; }
+
+        /* ===== Tab content ===== */
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+
+        /* ===== Sidebar buttons ===== */
+        .sidebar-btn {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border-radius: 0.75rem;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            text-align: right;
+            font-size: 0.875rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        .sidebar-btn::before {
+            content: '';
+            position: absolute;
+            inset-inline-start: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: var(--gold);
+            border-radius: 0 4px 4px 0;
+            transition: height 0.2s;
+        }
+        .sidebar-btn:hover {
+            background: var(--bg-soft);
+            color: var(--text-primary);
+        }
+        .sidebar-btn:hover::before { height: 60%; }
+        .sidebar-btn.active {
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .sidebar-btn.active::before { height: 70%; background: var(--accent); }
+        .sidebar-btn .icon-box {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-soft);
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .sidebar-btn:hover .icon-box { background: var(--bg-input); }
+        .sidebar-btn.active .icon-box {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+        .sidebar-btn .num-pill {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            background: var(--bg-soft);
+            color: var(--text-muted);
+        }
+        .sidebar-btn.active .num-pill {
+            background: var(--accent);
+            color: white;
+        }
+        .sidebar-btn .chev { font-size: 0.7rem; opacity: 0.4; transition: transform 0.2s; }
+        .sidebar-btn.active .chev { opacity: 1; transform: translateX(-3px); }
+        html[dir="ltr"] .sidebar-btn.active .chev { transform: translateX(3px); }
+
+        /* ===== Cards ===== */
+        .card {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-color);
+        }
+        .card-accent-top::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+        .card-gold-top::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+        }
+        .card-success { border-inline-start: 4px solid #10b981; }
+        .card-danger { border-inline-start: 4px solid #ef4444; }
+        .card-warning { border-inline-start: 4px solid #f59e0b; }
+        .card-info { border-inline-start: 4px solid #3b82f6; }
+
+        /* ===== Section titles ===== */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            letter-spacing: -0.01em;
+        }
+        .section-title .icon-wrap {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        .section-subtitle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.875rem;
+        }
+        .section-subtitle i { color: var(--accent); font-size: 0.95rem; }
+
+        /* ===== Cards inside content ===== */
+        .mini-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 0.875rem;
+            padding: 1.25rem;
+            transition: all 0.2s;
+        }
+        .mini-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-color); }
+        .mini-card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.625rem;
+            border-bottom: 1px solid var(--border-soft);
+            font-size: 0.95rem;
+        }
+        .mini-card-title i { font-size: 0.85rem; }
+
+        /* ===== Pills / Tags ===== */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--bg-soft);
+            color: var(--text-secondary);
+        }
+        .pill-accent { background: var(--accent-soft); color: var(--accent); }
+        .pill-gold { background: rgba(212, 175, 55, 0.12); color: var(--gold); }
+        .pill-success { background: rgba(16, 185, 129, 0.12); color: #059669; }
+        .pill-danger { background: rgba(239, 68, 68, 0.12); color: #dc2626; }
+        .pill-warning { background: rgba(245, 158, 11, 0.12); color: #d97706; }
+
+        /* ===== Inline code (mono) ===== */
+        .code-tag {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            background: var(--bg-input);
+            color: var(--text-primary);
+            font-family: 'Inter', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border: 1px solid var(--border-soft);
+        }
+        .code-tag-accent { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+        .code-tag-success { background: rgba(16, 185, 129, 0.1); color: #059669; border-color: transparent; }
+        .code-tag-gold { background: rgba(212, 175, 55, 0.1); color: var(--gold); border-color: transparent; }
+        .code-tag-danger { background: rgba(239, 68, 68, 0.1); color: #dc2626; border-color: transparent; }
+
+        /* ===== Alert / Tip box ===== */
+        .alert {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            border-radius: 0.875rem;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        .alert-icon {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.85rem;
+        }
+        .alert-info { background: var(--accent-soft); color: var(--accent); border-inline-start: 3px solid var(--accent); }
+        .alert-info .alert-icon { background: var(--accent); color: white; }
+        .alert-warning { background: rgba(245, 158, 11, 0.1); color: #b45309; border-inline-start: 3px solid #f59e0b; }
+        .alert-warning .alert-icon { background: #f59e0b; color: white; }
+        .alert-danger { background: rgba(239, 68, 68, 0.08); color: #b91c1c; border-inline-start: 3px solid #ef4444; }
+        .alert-danger .alert-icon { background: #ef4444; color: white; }
+        .alert-success { background: rgba(16, 185, 129, 0.08); color: #047857; border-inline-start: 3px solid #10b981; }
+        .alert-success .alert-icon { background: #10b981; color: white; }
+        .alert-gold { background: rgba(212, 175, 55, 0.08); color: #92400e; border-inline-start: 3px solid var(--gold); }
+        .alert-gold .alert-icon { background: var(--gold); color: white; }
+
+        /* ===== Mobile header ===== */
+        .mobile-header {
+            position: fixed;
+            top: 0; right: 0; left: 0;
+            z-index: 120;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            padding: 0.625rem 1rem;
+            padding-top: calc(0.625rem + var(--safe-top));
+            padding-inline-start: calc(1rem + var(--safe-left));
+            padding-inline-end: calc(1rem + var(--safe-right));
+            background: var(--gradient-primary);
+            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.25);
+        }
+        .mobile-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(180deg, rgba(30, 58, 138, 0.15), transparent);
+            pointer-events: none;
+        }
+        .mobile-header-brand {
+            display: flex; align-items: center; gap: 0.625rem;
+        }
+        .mobile-header-brand .logo-box {
+            width: 38px; height: 38px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+            border: 2px solid var(--gold);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .mobile-header-brand h2 {
+            font-size: 1rem;
+            font-weight: 900;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        /* ===== Icon buttons ===== */
+        .icon-btn {
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 11px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            font-size: 0.95rem;
+        }
+        .icon-btn-light {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+        .icon-btn-light:hover { background: rgba(255, 255, 255, 0.22); }
+        .icon-btn-light:active { transform: scale(0.92); }
+        .icon-btn-soft {
+            background: var(--bg-soft);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-soft);
+        }
+        .icon-btn-soft:hover {
+            background: var(--bg-input);
+            color: var(--accent);
+            border-color: var(--border-color);
+        }
+        .icon-btn-soft:active { transform: scale(0.92); }
+
+        /* ===== Search input ===== */
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 0.625rem 1rem;
+            border-radius: 0.75rem;
+            background: var(--bg-input);
+            border: 1.5px solid transparent;
+            transition: all 0.2s;
+        }
+        .search-box:focus-within {
+            border-color: var(--accent);
+            background: var(--bg-card);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+        .search-box i { color: var(--text-muted); font-size: 0.9rem; }
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            font-family: inherit;
+            font-weight: 500;
+        }
+        .search-box input::placeholder { color: var(--text-muted); }
+
+        /* ===== Backdrop ===== */
+        .backdrop {
+            position: fixed; inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            z-index: 150;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s;
+            backdrop-filter: blur(4px);
+        }
+        .backdrop.open { opacity: 1; pointer-events: auto; }
+
+        /* ===== Sidebar ===== */
+        .sidebar-desktop {
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-inline-start: 1px solid var(--border-soft);
+        }
+        .sidebar-header {
+            position: relative;
+            padding: 1.75rem 1.5rem 1.5rem;
+            text-align: center;
+            color: white;
+            background: var(--gradient-primary);
+            overflow: hidden;
+        }
+        .sidebar-header::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.4;
+        }
+        .sidebar-header .logo-wrap {
+            position: relative;
+            width: 64px; height: 64px;
+            margin: 0 auto 0.75rem;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.1));
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar-header .logo-wrap i { font-size: 1.5rem; color: var(--gold); }
+        .sidebar-header h1 {
+            position: relative;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
+        }
+        .sidebar-header p {
+            position: relative;
+            font-size: 0.7rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 0.05em;
+        }
+        .sidebar-stats {
+            position: relative;
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .stat-item {
+            flex: 1;
+            text-align: center;
+        }
+        .stat-item .num {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            display: block;
+        }
+        .stat-item .lbl {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            margin-top: 0.15rem;
+            display: block;
+        }
+        .sidebar-section-label {
+            padding: 0.875rem 1.25rem 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .sidebar-nav {
+            flex: 1;
+            padding: 0.5rem 0.75rem 1rem;
+            overflow-y: auto;
+        }
+        .sidebar-nav .sidebar-btn {
+            margin-bottom: 0.25rem;
+        }
+        .sidebar-footer {
+            padding: 1rem 1.25rem;
+            border-top: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            background: var(--bg-soft);
+        }
+        .sidebar-footer .avatar {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            flex-shrink: 0;
+        }
+        .sidebar-footer .info { flex: 1; min-width: 0; }
+        .sidebar-footer .info .name {
+            font-size: 0.825rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .sidebar-footer .info .role {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.1rem;
+        }
+
+        /* ===== Settings panel ===== */
+        .settings-panel {
+            position: fixed;
+            z-index: 250;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            width: 320px;
+            max-width: calc(100vw - 2rem);
+            box-shadow: var(--shadow-xl);
+            opacity: 0; visibility: hidden;
+            transform: scale(0.95) translateY(-10px);
+            transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .settings-panel.open { opacity: 1; visibility: visible; transform: scale(1) translateY(0); }
+        .settings-section { margin-bottom: 1.25rem; }
+        .settings-section:last-child { margin-bottom: 0; }
+        .settings-section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .settings-section-title i { color: var(--accent); font-size: 0.8rem; }
+        .settings-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.625rem 0;
+        }
+        .settings-row-label { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem; }
+        .settings-row-label small { display: block; font-size: 0.7rem; color: var(--text-muted); font-weight: 500; margin-top: 0.1rem; }
+        .settings-divider { height: 1px; background: var(--border-soft); margin: 0.75rem 0; }
+        .swatch-row { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; }
+        .swatch {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+            position: relative;
+        }
+        .swatch:hover { transform: scale(1.12); }
+        .swatch.active {
+            border-color: var(--bg-card);
+            box-shadow: 0 0 0 2px var(--text-primary), 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1);
+        }
+        .swatch.active::after {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+        }
+
+        /* ===== Toggle switch ===== */
+        .toggle {
+            width: 44px; height: 24px;
+            background: var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+            border: none;
+            flex-shrink: 0;
+        }
+        .toggle.on { background: var(--gradient-primary); }
+        .toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px; width: 20px; height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        html[dir="rtl"] .toggle::after { left: 2px; }
+        html[dir="ltr"] .toggle::after { right: 2px; }
+        .toggle.on::after { transform: translateX(20px); }
+        html[dir="rtl"] .toggle.on::after { transform: translateX(-20px); }
+
+        /* ===== Mobile search dropdown ===== */
+        .mobile-search-wrap {
+            position: fixed;
+            top: calc(3.25rem + var(--safe-top));
+            right: 0; left: 0;
+            background: var(--bg-card);
+            padding: 0.75rem 1rem;
+            z-index: 150;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-150%);
+            transition: transform 0.3s;
+        }
+        .mobile-search-wrap.open { transform: translateY(0); }
+
+        /* ===== FAB ===== */
+        .fab-group {
+            position: fixed;
+            bottom: 1.5rem;
+            inset-inline-end: 1.5rem;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 100;
+        }
+        .fab {
+            width: 54px; height: 54px;
+            border-radius: 16px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px var(--accent-glow), 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.15s, box-shadow 0.15s;
+            touch-action: manipulation;
+        }
+        .fab:hover { transform: scale(1.05); box-shadow: 0 12px 32px var(--accent-glow); }
+        .fab:active { transform: scale(0.92); }
+        .fab i { font-size: 1.1rem; }
+
+        /* ===== Toast ===== */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%; transform: translateX(-50%) translateY(150%);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 0.875rem 1.25rem;
+            border-radius: 0.875rem;
+            box-shadow: var(--shadow-xl);
+            z-index: 300;
+            transition: transform 0.3s;
+            white-space: nowrap;
+            max-width: 90vw;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+        .toast .toast-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px; height: 24px;
+            border-radius: 6px;
+            background: var(--accent);
+            color: white;
+            margin-inline-end: 0.5rem;
+            font-size: 0.7rem;
+        }
+
+        /* ===== Tabs list (numbered) ===== */
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px; height: 22px;
+            border-radius: 6px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 800;
+            font-family: 'Inter', sans-serif;
+            flex-shrink: 0;
+        }
+        .step-num.gold { background: var(--gradient-gold); color: #5b4500; }
+
+        /* ===== Hero / welcome banner ===== */
+        .hero-banner {
+            background: var(--gradient-primary);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 60%; height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+        }
+        .hero-banner h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        .hero-banner p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            max-width: 500px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .hero-banner .hero-icon {
+            position: absolute;
+            top: 1.5rem;
+            inset-inline-start: 1.5rem;
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--gold);
+        }
+        html[dir="ltr"] .hero-banner .hero-icon { right: 1.5rem; left: auto; }
+
+        /* ===== Stats grid (top of page) ===== */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .stat-tile {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 0.875rem;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .stat-tile .ico {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+        .stat-tile .ico.blue { background: var(--accent-soft); color: var(--accent); }
+        .stat-tile .ico.gold { background: rgba(212, 175, 55, 0.12); color: var(--gold); }
+        .stat-tile .ico.green { background: rgba(16, 185, 129, 0.1); color: #059669; }
+        .stat-tile .ico.red { background: rgba(239, 68, 68, 0.1); color: #dc2626; }
+        .stat-tile .val { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); font-family: 'Inter', sans-serif; line-height: 1; }
+        .stat-tile .lbl { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; font-weight: 500; }
+
+        /* ===== Bullet list ===== */
+        .check-list { list-style: none; padding: 0; margin: 0; }
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.625rem;
+            padding: 0.4rem 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .check-list li i.check { color: #10b981; font-size: 0.85rem; margin-top: 0.2rem; flex-shrink: 0; }
+        .check-list li i.bullet { color: var(--accent); font-size: 0.5rem; margin-top: 0.5rem; margin-inline-start: 0.4rem; margin-inline-end: 0.4rem; flex-shrink: 0; }
+        .check-list li b { color: var(--text-primary); }
+
+        /* ===== Table ===== */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+        .data-table th {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.875rem 1rem;
+            text-align: right;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+        .data-table th:first-child { border-top-right-radius: 0.75rem; }
+        .data-table th:last-child { border-top-left-radius: 0.75rem; }
+        .data-table td {
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid var(--border-soft);
+            color: var(--text-secondary);
+        }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table tbody tr:hover { background: var(--bg-soft); }
+        .data-table tbody tr:nth-child(even) { background: var(--bg-soft); }
+        .data-table tbody tr:nth-child(even):hover { background: var(--bg-input); }
+
+        /* ===== Brand strip (desktop header) ===== */
+        .brand-strip {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 1.25rem;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .brand-strip .logo {
+            width: 64px; height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 16px rgba(185, 28, 28, 0.25);
+            flex-shrink: 0;
+        }
+        .brand-strip .logo i { font-size: 1.6rem; color: white; }
+        .brand-strip .text h2 {
+            font-size: 1.75rem;
+            font-weight: 900;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .brand-strip .text p {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.2em;
+            margin-top: 0.4rem;
+            text-transform: uppercase;
+        }
+        .brand-strip .divider-v { width: 1px; height: 48px; background: var(--border-soft); }
+        .brand-strip .meta { display: flex; flex-direction: column; gap: 0.4rem; }
+        .brand-strip .meta-item {
+            display: flex; align-items: center; gap: 0.4rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .brand-strip .meta-item i { color: var(--accent); font-size: 0.7rem; }
+        .brand-strip .actions { margin-inline-start: auto; display: flex; align-items: center; gap: 0.625rem; }
+        .brand-strip .search-box { width: 260px; }
+        .brand-strip .brand-date {
+            display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem;
+        }
+        .brand-strip .brand-date .date {
+            font-size: 0.75rem; color: var(--text-muted); font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+        .brand-strip .brand-date .live {
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            font-size: 0.7rem; font-weight: 700; color: #10b981;
+        }
+        .brand-strip .brand-date .live::before {
+            content: ''; width: 6px; height: 6px;
+            border-radius: 50%; background: #10b981;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+            animation: pulse-soft 2s infinite;
+        }
+
+        /* ===== Print ===== */
+        @media print {
+            .sidebar-desktop, .mobile-header, .desktop-header, .backdrop, .mobile-search-wrap, .settings-panel, .fab-group, .toast, .brand-strip { display: none !important; }
+            .main-content { padding: 0 !important; height: auto !important; overflow: visible !important; margin: 0 !important; }
+            .tab-content { display: block !important; animation: none !important; page-break-after: always; }
+            .card, .mini-card { box-shadow: none !important; }
+        }
+
+        /* ===== Touch helpers ===== */
+        .sidebar-btn, .icon-btn, .fab, .toggle, .swatch { user-select: none; -webkit-user-select: none; }
+
+        /* ===== RESPONSIVE ===== */
+        /* Mobile (< 1024px) */
+        @media (max-width: 1023px) {
+            html, body { height: 100%; overflow: hidden; }
+            .layout-flex { display: block; height: 100%; }
+
+            .sidebar-desktop {
+                position: fixed;
+                top: 0;
+                height: 100%;
+                height: 100dvh;
+                z-index: 200;
+                width: 85vw;
+                max-width: 320px;
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25);
+                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            html[dir="rtl"] .sidebar-desktop { right: 0; transform: translateX(100%); }
+            html[dir="ltr"] .sidebar-desktop { left: 0; transform: translateX(-100%); }
+            .sidebar-desktop.open { transform: translateX(0) !important; }
+
+            .main-content {
+                height: 100%;
+                height: 100dvh;
+                padding: 0.875rem;
+                padding-top: calc(3.5rem + var(--safe-top));
+                padding-bottom: calc(0.875rem + var(--safe-bottom));
+                padding-inline-start: calc(0.875rem + var(--safe-left));
+                padding-inline-end: calc(0.875rem + var(--safe-right));
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
+            }
+
+            .mobile-header { display: flex; }
+            .desktop-header { display: none !important; }
+            .fab-group { display: flex; }
+        }
+
+        /* Desktop (>= 1024px) */
+        @media (min-width: 1024px) {
+            html, body { overflow: hidden; }
+            .mobile-header { display: none !important; }
+            .mobile-search-wrap { display: none !important; }
+            .fab-group { display: none !important; }
+
+            .sidebar-desktop {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                height: 100dvh;
+                width: 300px;
+                z-index: 50;
+                box-shadow: -4px 0 24px rgba(15, 23, 42, 0.06);
+            }
+
+            .main-content {
+                margin-right: 300px;
+                height: 100vh;
+                height: 100dvh;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
+                padding: 1.5rem;
+                padding-top: calc(1.5rem + var(--safe-top));
+                padding-bottom: calc(1.5rem + var(--safe-bottom));
+            }
+        }
+
+        @media (max-width: 639px) {
+            .main-content { padding: 0.625rem; padding-top: calc(3.25rem + var(--safe-top)); }
+        }
+
+        @media (max-width: 1280px) and (min-width: 1024px) {
+            .brand-strip { gap: 0.75rem; padding: 1rem 1.25rem; }
+            .brand-strip .logo { width: 52px; height: 52px; }
+            .brand-strip .text h2 { font-size: 1.4rem; }
+            .brand-strip .divider-v { display: none; }
+            .brand-strip .meta-item { font-size: 0.7rem; }
+            .brand-strip .search-box { width: 200px; }
+        }
+        @media (max-width: 1100px) and (min-width: 1024px) {
+            .brand-strip .meta { display: none; }
+            .brand-strip .brand-date { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="backdrop" id="backdrop" onclick="closeAll()"></div>
+    <div class="toast" id="toast"></div>
+
+    <!-- ====== MOBILE HEADER ====== -->
+    <header class="mobile-header">
+        <div class="mobile-header-brand">
+            <button class="icon-btn icon-btn-light" onclick="toggleSidebar()" aria-label="القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo-box">
+                <i class="fas fa-university" style="color: white; font-size: 0.9rem;"></i>
+            </div>
+            <div>
+                <h2 class="bank-misr-logo" style="font-family: 'Inter', sans-serif;">بنك مصر</h2>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.4rem;">
+            <button class="icon-btn icon-btn-light" onclick="toggleMobileSearch()" aria-label="البحث">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="icon-btn icon-btn-light" onclick="toggleSettings(event)" aria-label="الإعدادات">
+                <i class="fas fa-sliders-h"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-search-wrap" id="mobileSearch">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="mobileSearchInput" onkeyup="runSearch(this.value)" placeholder="ابحث في كل القواعد..." autocomplete="off">
+            <button onclick="toggleMobileSearch()" style="background: transparent; border: none; color: var(--text-muted); padding: 0.25rem;" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ====== LAYOUT ====== -->
+    <div class="layout-flex" style="display: flex; height: 100vh; height: 100dvh;">
+
+        <!-- ====== SIDEBAR ====== -->
+        <aside class="sidebar-desktop" style="width: 300px; flex-shrink: 0;">
+            <div class="sidebar-header">
+                <div class="logo-wrap">
+                    <i class="fas fa-cubes"></i>
+                </div>
+                <h1 class="shimmer-text">K-Base B042</h1>
+                <p>KNOWLEDGE BASE • SABER</p>
+                <div class="sidebar-stats">
+                    <div class="stat-item">
+                        <span class="num">7</span>
+                        <span class="lbl">أقسام</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="num">40+</span>
+                        <span class="lbl">قاعدة</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="num" style="color: #10b981;">●</span>
+                        <span class="lbl">محدّث</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section-label">القائمة الرئيسية</div>
+            <nav class="sidebar-nav" id="sidebarNav">
+                <button class="sidebar-btn active" data-tab="verif">
+                    <span style="display: flex; align-items: center; gap: 0.625rem;">
+                        <span class="icon-box"><i class="fas fa-shield-halved"></i></span>
+                        <span>قواعد التحقق</span>
+                    </span>
+                    <span class="num-pill">01</span>
+                </button>
+                <button class="sidebar-btn" data-tab="credit">
+                    <span style="display: flex; align-items: center; gap: 0.625rem;">
+                        <span class="icon-box"><i class="fas fa-credit-card"></i></span>
+                        <span>الكريدت</span>
+                    </span>
+                    <span class="num-pill">02</span>
+                </button>
+                <button class="sidebar-btn" data-tab="cards">
+                    <span style="display: flex; align-items: center; gap: 0.625rem;">
+                        <span class="icon-box"><i class="fas fa-id-card"></i></span>
+                        <span>الديبت والمرتبات</span>
+                    </span>
+                    <span class="num-pill">03</span>
+                </button>
+                <button class="sidebar-btn" data-tab="loans">
+                    <span style="display: flex; align-items: center; gap: 0.625rem;">
+                        <span class="icon-box"><i class="fas fa-hand-holding-dollar"></i></span>
+                        <span>القروض</span>
+                    </span>
+                    <span class="num-pill">04</span>
+                </button>
+                <button class="sidebar-btn" data-tab="certs">
+                    <span style="display: flex; align-items: center; gap: 0.625rem;">
+                        <span class="icon-box"><i class="fas fa-file-invoice-dollar"></i></span>
+                        <span>الشهادات</span>
+                    </span>
+                    <span class="num-pill">05</span>
+                </button>
+                <button class="sidebar-btn" data-tab="shipping">
+                    <span style="display: flex; align-items: center; gap: 0.625rem;">
+                        <span class="icon-box"><i class="fas fa-truck-fast"></i></span>
+                        <span>شركات الشحن</span>
+                    </span>
+                    <span class="num-pill">06</span>
+                </button>
+                <button class="sidebar-btn" data-tab="systems">
+                    <span style="display: flex; align-items: center; gap: 0.625rem;">
+                        <span class="icon-box"><i class="fas fa-laptop-code"></i></span>
+                        <span>الأنظمة و 360 API</span>
+                    </span>
+                    <span class="num-pill">07</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="avatar">HS</div>
+                <div class="info">
+                    <div class="name">Hakim Saad</div>
+                    <div class="role">Prepared by</div>
+                </div>
+                <button class="icon-btn icon-btn-soft" onclick="toggleSettings(event)" aria-label="الإعدادات" style="width: 36px; height: 36px;">
+                    <i class="fas fa-cog" style="font-size: 0.85rem;"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- ====== MAIN CONTENT ====== -->
+        <main class="main-content flex-1" style="background: var(--bg-primary);">
+
+            <!-- Desktop brand strip -->
+            <div class="brand-strip desktop-header">
+                <div class="logo">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="text">
+                    <h2 class="bank-misr-logo">بنك مصر</h2>
+                    <p>Banque Misr · Egypt</p>
+                </div>
+                <div class="divider-v"></div>
+                <div class="meta">
+                    <div class="meta-item"><i class="fas fa-cubes"></i> K-Base B042 · Saber</div>
+                    <div class="meta-item"><i class="fas fa-user-tie"></i> Prepared by Hakim Saad</div>
+                </div>
+                <div class="actions">
+                    <div class="brand-date">
+                        <span class="live">Live</span>
+                        <span class="date" id="liveDate"></span>
+                    </div>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="desktopSearchInput" onkeyup="runSearch(this.value)" placeholder="ابحث عن أي قاعدة..." autocomplete="off">
+                    </div>
+                    <button class="icon-btn icon-btn-soft" onclick="toggleSettings(event)" aria-label="الإعدادات">
+                        <i class="fas fa-sliders-h"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ====== VERIF TAB ====== -->
+            <div class="tab-content active searchable-section" id="verif">
+                <div class="hero-banner">
+                    <div class="hero-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h2>قواعد التحقق (Verification)</h2>
+                    <p>القواعد الأساسية للتحقق من بيانات العميل والمبالغ وكسور الأرقام — اتبعها بدقة قبل تأكيد أي معلومة.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-tile">
+                        <div class="ico blue"><i class="fas fa-user-check"></i></div>
+                        <div>
+                            <div class="val">3+</div>
+                            <div class="lbl">بيانات شخصية مطلوبة</div>
+                        </div>
+                    </div>
+                    <div class="stat-tile">
+                        <div class="ico gold"><i class="fas fa-calculator"></i></div>
+                        <div>
+                            <div class="val">2</div>
+                            <div class="lbl">قاعدتي الكسور</div>
+                        </div>
+                    </div>
+                    <div class="stat-tile">
+                        <div class="ico green"><i class="fas fa-wallet"></i></div>
+                        <div>
+                            <div class="val">3</div>
+                            <div class="lbl">منتجات مالية</div>
+                        </div>
+                    </div>
+                    <div class="stat-tile">
+                        <div class="ico red"><i class="fas fa-ban"></i></div>
+                        <div>
+                            <div class="val">!</div>
+                            <div class="lbl">قواعد ممنوعة</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="display: grid;">
+                    <div class="card card-accent-top">
+                        <h3 class="mini-card-title"><i class="fas fa-user-check"></i> البيانات الشخصية الأساسية</h3>
+                        <ul class="check-list">
+                            <li><i class="fas fa-check-circle check"></i><span>الاسم <b>ثلاثي على الأقل</b>.</span></li>
+                            <li><i class="fas fa-check-circle check"></i><span>الرقم القومي <b>بالكامل</b> أو (آخر 4 أرقام + تاريخ الميلاد).</span></li>
+                            <li><i class="fas fa-check-circle check"></i><span>جواز السفر: <b>رقم الجواز + تاريخ الميلاد</b>.</span></li>
+                        </ul>
+                        <div class="alert alert-info" style="margin-top: 1rem;">
+                            <div class="alert-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div><b>وسائل مساعدة (بديلة للقومي بالكامل):</b><br>اتصال من رقم مسجل · كارت مشفّر · رقم تعريفي · خدمة صوتية</div>
+                        </div>
+                    </div>
+                    <div class="card card-gold-top">
+                        <h3 class="mini-card-title" style="color: var(--gold);"><i class="fas fa-calculator"></i> قواعد المبالغ والكسور</h3>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span><b>جبر الكسر:</b> المبلغ 499.9 قال <span class="code-tag">500</span> أو <span class="code-tag">499</span> <span class="pill pill-success">يُعتمد</span>. لو قال <span class="code-tag code-tag-danger">501</span> <span class="pill pill-danger">مرفوض</span></span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>حدود الـ 100 وحدة:</b> الرصيد 5100 قال <span class="code-tag">5000</span> أو <span class="code-tag">5200</span> <span class="pill pill-success">يُعتمد مع بيان مساعد</span>. قال <span class="code-tag code-tag-danger">5200.80</span> <span class="pill pill-danger">مرفوض</span></span></li>
+                        </ul>
+                        <div class="alert alert-danger" style="margin-top: 1rem;">
+                            <div class="alert-icon"><i class="fas fa-ban"></i></div>
+                            <div><b>تحذير:</b> يمنع تماماً الجمع بين قاعدتي جبر الكسر والـ 100 وحدة في نفس البيان!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle"><i class="fas fa-wallet"></i> البيانات المالية المعتمدة حسب المنتج</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" style="display: grid;">
+                    <div class="card" style="background: linear-gradient(180deg, var(--accent-soft) 0%, var(--bg-card) 100%);">
+                        <h4 class="mini-card-title"><i class="fas fa-university"></i> الحسابات الجارية والتوفير</h4>
+                        <ul class="check-list">
+                            <li><i class="fas fa-check-circle check"></i><span>الرصيد المتاح فقط</span></li>
+                            <li><i class="fas fa-check-circle check"></i><span>أحدث حركة خصم (تحويل/مشتريات/سحب)</span></li>
+                            <li><i class="fas fa-check-circle check"></i><span>آخر مرتب أو معاش أو حافز مضاف</span></li>
+                            <li><i class="fas fa-check-circle check"></i><span>أحدث سحب/إيداع فرع</span></li>
+                            <li><i class="fas fa-check-circle check"></i><span>أول إيداع على الحساب (IPN / ATM)</span></li>
+                        </ul>
+                    </div>
+                    <div class="card card-danger" style="background: linear-gradient(180deg, rgba(239, 68, 68, 0.04) 0%, var(--bg-card) 100%);">
+                        <h4 class="mini-card-title" style="color: #b91c1c;"><i class="fas fa-credit-card"></i> الكريدت (البطاقات الائتمانية)</h4>
+                        <div class="alert alert-danger" style="margin-bottom: 0.75rem;">
+                            <div class="alert-icon"><i class="fas fa-times"></i></div>
+                            <div><b>ممنوع اعتماد الرصيد المتاح نهائياً!</b></div>
+                        </div>
+                        <ul class="check-list">
+                            <li><i class="fas fa-check-circle check"></i><span>الحد الائتماني الحالي أو السابق</span></li>
+                            <li><i class="fas fa-check-circle check"></i><span>مديونية كشف الحساب أو الحد الأدنى</span></li>
+                            <li><i class="fas fa-check-circle check"></i><span>أحدث حركة خصم (مقيدة أو مجنبة)</span></li>
+                            <li><i class="fas fa-check-circle check"></i><span>معاملة تقسيط أو مبلغ القسط</span></li>
+                        </ul>
+                    </div>
+                    <div class="card card-success" style="background: linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, var(--bg-card) 100%);">
+                        <h4 class="mini-card-title" style="color: #047857;"><i class="fas fa-exchange-alt"></i> الحوالات الاسمية</h4>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.625rem;">يتم مراجعة 3 بيانات على الأقل من:</p>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span>الهاتف المسجل / القومي</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span>اسم المستفيد / اسم المرسل</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span>عملة التحويل / الدولة</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span>الرقم المرجعي للحوالة</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CREDIT TAB ====== -->
+            <div class="tab-content searchable-section" id="credit">
+                <div class="hero-banner" style="background: linear-gradient(135deg, #b91c1c 0%, #991b1b 50%, #7f1d1d 100%);">
+                    <div class="hero-icon" style="background: rgba(255, 255, 255, 0.15); color: var(--gold);"><i class="fas fa-credit-card"></i></div>
+                    <h2>البطاقات الائتمانية (Credit Card)</h2>
+                    <p>القاعدة الصارمة في مراجعات الكريدت — اتبعها بدقة لتجنب الأخطاء.</p>
+                </div>
+
+                <div class="alert alert-danger" style="font-size: 0.9rem; font-weight: 700;">
+                    <div class="alert-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div>قاعدة صارمة ومهمة: <b>مبعتمدش نهائي نهائي</b> رصيد كارت الكريديت كبيان مالي للعميل!</div>
+                </div>
+
+                <h3 class="section-subtitle"><i class="fas fa-chart-pie"></i> شاشة Balance (مقسمة لـ 3 أجزاء)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" style="display: grid;">
+                    <div class="mini-card">
+                        <h4 class="mini-card-title" style="color: var(--accent);"><i class="fas fa-calendar-day"></i> 1. Current (الشهر الحالي)</h4>
+                        <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.625rem;">تفاصيل الحركات تظهر داخل الـ Transaction</p>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span><b>Purchase:</b> إجمالي المشتريات وعددها</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>Cash / Fees:</b> السحب النقدي / المصاريف</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>Refund:</b> حركات ريفاند أو تقسيط</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>Live deposit:</b> الإيداعات الفعلية قبل End of Day</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>Authorization amount:</b> المجنب الفعلي</span></li>
+                        </ul>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="mini-card-title" style="color: var(--accent);"><i class="fas fa-money-bill-trend-up"></i> 2. Balance (المديونيات)</h4>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span><b>Closing:</b> مديونية الشهر السابق</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>Extra loan:</b> أقساط (نون/أمازون/جوميا)</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>Theoretical amount:</b> إجمالي المديونية</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b style="color: #059669;">Available balance:</b> الرصيد المتاح</span></li>
+                        </ul>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="mini-card-title" style="color: var(--accent);"><i class="fas fa-cash-register"></i> 3. Cash (السحب النقدي)</h4>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span>المتاح للسحب النقدي خلال الشهر</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>Pending interest:</b> الفوائد المعلقة <small style="color: var(--text-muted); font-size: 0.7rem;">(لا تذكر قيمتها)</small></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="display: grid; margin-top: 1.5rem;">
+                    <div class="card card-accent-top">
+                        <h3 class="mini-card-title"><i class="fas fa-list-alt"></i> شاشة Transaction List</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">مدة قيد المعاملات المعتادة <b>30 يوماً</b></p>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag">Posting date</span> تاريخ قيد المعاملة</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag">Transaction date</span> تاريخ تنفيذ العملية</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag">TRX. Desc</span> مسميات العمولات</span></li>
+                        </ul>
+                    </div>
+                    <div class="card card-gold-top">
+                        <h3 class="mini-card-title" style="color: var(--gold);"><i class="fas fa-file-alt"></i> شاشة Terms List (كشوف الحساب)</h3>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span><b>Closing balance:</b> إجمالي مديونية الشهر المقفل</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>Minimum due:</b> الحد الأدنى (5%). سداد أقل <span class="pill pill-danger">غرامة 75 جم + فوائد 4%</span></span></li>
+                        </ul>
+                        <div class="alert alert-gold" style="margin-top: 0.75rem;">
+                            <div class="alert-icon"><i class="fas fa-info-circle"></i></div>
+                            <div>اضغط على <b>Interest Details</b> لمعرفة الفوائد.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CARDS TAB ====== -->
+            <div class="tab-content searchable-section" id="cards">
+                <div class="hero-banner" style="background: linear-gradient(135deg, #047857 0%, #065f46 50%, #064e3b 100%);">
+                    <div class="hero-icon" style="background: rgba(255, 255, 255, 0.15); color: var(--gold);"><i class="fas fa-id-card"></i></div>
+                    <h2>كروت المرتبات والخصم الفوري</h2>
+                    <p>نظام كروت الديبت، Prepaid، وكروت المرتبات (Payroll) — البحث الصحيح حسب كل نوع.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3" style="display: grid; margin-bottom: 1.5rem;">
+                    <div class="card" style="background: var(--gradient-primary); color: white; border: none;">
+                        <div style="display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.5rem;">
+                            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h4 style="font-size: 1rem; font-weight: 700;">كارت الديبت</h4>
+                        </div>
+                        <p style="font-size: 0.75rem; opacity: 0.9; line-height: 1.5;">البحث بـ Customer ID + اختيار فرع العميل أو رقم الحساب للتوكن</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #0f766e 0%, #134e4a 100%); color: white; border: none;">
+                        <div style="display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.5rem;">
+                            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <h4 style="font-size: 1rem; font-weight: 700;">مدفوع مقدماً (Prepaid)</h4>
+                        </div>
+                        <p style="font-size: 0.75rem; opacity: 0.9; line-height: 1.5;">البحث بالرقم القومي واختيار فرع الديبت كـ Payroll</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #4338ca 0%, #312e81 100%); color: white; border: none;">
+                        <div style="display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.5rem;">
+                            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h4 style="font-size: 1rem; font-weight: 700;">كروت المرتبات (Payroll)</h4>
+                        </div>
+                        <p style="font-size: 0.75rem; opacity: 0.9; line-height: 1.5;">البحث بالرقم القومي واختيار فرع 001 (خاص) أو 999 (عام)</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4" style="display: grid;">
+                    <div class="card card-accent-top">
+                        <h3 class="mini-card-title"><i class="fas fa-credit-card"></i> تفاصيل شاشات الديبت (Debit)</h3>
+                        <div style="margin-top: 1rem;">
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                                <span class="step-num">1</span> شاشة Quirer
+                            </h4>
+                            <ul class="check-list" style="padding-inline-start: 1.5rem;">
+                                <li><i class="fas fa-circle bullet"></i><span><b>Card activity query:</b> حركات الكارت الداخلية</span></li>
+                                <li><i class="fas fa-circle bullet"></i><span><b>Card transactions log:</b> المعاملات المقيدة والمرفوضة</span></li>
+                                <li><i class="fas fa-circle bullet"></i><span><b>Customer details:</b> مفتاح الكارت لاستخراج التوكن</span></li>
+                                <li><i class="fas fa-circle bullet"></i><span><b>Card link query:</b> معرفة الحسابات المربوطة</span></li>
+                            </ul>
+                        </div>
+                        <div style="margin-top: 1.25rem;">
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                                <span class="step-num">2</span> شاشة Card Management
+                            </h4>
+                            <ul class="check-list" style="padding-inline-start: 1.5rem;">
+                                <li><i class="fas fa-circle bullet"></i><span><b>Card maintenance:</b> البيانات الكاملة للكارت</span></li>
+                                <li><i class="fas fa-circle bullet"></i><span><b>Card limit counter:</b> تعديل الحدود اليومية والشهرية</span></li>
+                                <li><i class="fas fa-circle bullet"></i><span><b>Hot Card:</b> إيقاف الكارت فوراً</span></li>
+                                <li><i class="fas fa-circle bullet"></i><span><b>Add meg travel note:</b> ملاحظة سفر للكارت الدولاري</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card card-info">
+                        <h3 class="mini-card-title" style="color: #4338ca;"><i class="fas fa-briefcase"></i> تفاصيل شاشات المرتبات (Payroll)</h3>
+                        <div style="margin-top: 1rem;">
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">شاشة Queries الأساسية</h4>
+                            <ul class="check-list" style="padding-inline-start: 1.5rem;">
+                                <li><i class="fas fa-circle bullet"></i><span><b style="color: var(--accent);">pp card activity report:</b> الحركات بدون الكارت <span class="pill pill-success">بيان مالي قوي</span></span></li>
+                                <li><i class="fas fa-circle bullet"></i><span><b>Release transactions:</b> متابعة حركات الهولد</span></li>
+                                <li><i class="fas fa-circle bullet"></i><span><b>Mini statement:</b> المعاملات المقيدة المؤثرة</span></li>
+                                <li><i class="fas fa-circle bullet"></i><span><b>Hold transactions:</b> المعاملات المجنبة فقط</span></li>
+                            </ul>
+                        </div>
+                        <div class="alert alert-info" style="margin-top: 1rem;">
+                            <div class="alert-icon"><i class="fas fa-cog"></i></div>
+                            <div><b>شاشات الإدارة:</b> Hot Card للإيقاف · Utilities لرفع محاولات الخطأ.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== LOANS TAB ====== -->
+            <div class="tab-content searchable-section" id="loans">
+                <div class="card card-accent-top" style="max-width: none;">
+                    <h2 class="section-title" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                        <span class="icon-wrap"><i class="fas fa-hand-holding-dollar"></i></span>
+                        تفاصيل وعمليات القروض (Loans)
+                    </h2>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;">المسار: نقف على الاسم أمام الحساب ➔ 360 API contract ➔ Consumer Loans</p>
+
+                    <div class="alert alert-warning">
+                        <div class="alert-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div><b>ملاحظة للـ Agent:</b> طلب التقديم نفسه مش بيظهر على السيستم. بيظهر تفاصيل القرض فقط لما يتم الموافقة عليه.</div>
+                    </div>
+
+                    <div style="overflow-x: auto; border-radius: 0.875rem; border: 1px solid var(--border-soft); margin-top: 1.25rem;">
+                        <table class="data-table" style="min-width: 480px;">
+                            <thead>
+                                <tr>
+                                    <th><i class="fas fa-keyboard" style="margin-inline-end: 0.4rem;"></i>اسم الحقل على السيستم</th>
+                                    <th><i class="fas fa-info-circle" style="margin-inline-end: 0.4rem;"></i>بيان الحقل ومعناه</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="code-tag code-tag-accent">Installment value</span></td>
+                                    <td>قيمة القسط الشهري الفعلي</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-tag code-tag-accent">Remaining</span></td>
+                                    <td>المبلغ المتبقي الكلي من الأقساط</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-tag code-tag-accent">Start date / End date</span></td>
+                                    <td>تاريخ بداية ونهاية القرض</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-tag code-tag-accent">Remaining installment</span></td>
+                                    <td>المتبقي من الأقساط (عدد)</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-tag code-tag-accent">Total installment</span></td>
+                                    <td>إجمالي عدد الأقساط</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-tag code-tag-accent">Last payment date</span></td>
+                                    <td>تاريخ سداد آخر قسط</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-tag code-tag-danger">Areas (Arrears)</span></td>
+                                    <td style="color: #b91c1c; font-weight: 600;">قيمة المتأخرات المستحقة</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CERTS TAB ====== -->
+            <div class="tab-content searchable-section" id="certs">
+                <h2 class="section-title">
+                    <span class="icon-wrap" style="background: rgba(212, 175, 55, 0.12); color: var(--gold);"><i class="fas fa-file-invoice-dollar"></i></span>
+                    شاشات الشهادات والحسابات
+                </h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4" style="display: grid;">
+                    <div class="card card-gold-top">
+                        <h3 class="mini-card-title" style="color: #047857;"><i class="fas fa-certificate"></i> الشهادات والودائع</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">المسار: 360 API contract ➔ Certificates and deposits</p>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag code-tag-gold">purchase date</span> تاريخ شراء الشهادة</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag code-tag-gold">value date</span> التاريخ الفعلي لبدء الشهادة</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag code-tag-gold">end date</span> تاريخ انتهاء الشهادة</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag code-tag-gold">interest / payment coupon</span> نسبة/قيمة العائد</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag code-tag-gold">renewable / blocked</span> التجديد / المحتجز</span></li>
+                        </ul>
+                    </div>
+                    <div class="card card-accent-top">
+                        <h3 class="mini-card-title"><i class="fas fa-piggy-bank"></i> الحسابات وتفاصيل الحركات</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">المسار: 360 API ➔ Account details</p>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag code-tag-success">available balance</span> الرصيد الفعلي (يُعتمد)</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag code-tag-accent">current balance</span> رصيد شامل الهولد</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag">transaction date</span> تاريخ قيام العميل بالحركة</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><span class="code-tag">value date</span> تاريخ قيد المعاملة مالياً</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== SHIPPING TAB ====== -->
+            <div class="tab-content searchable-section" id="shipping">
+                <h2 class="section-title">
+                    <span class="icon-wrap" style="background: rgba(249, 115, 22, 0.12); color: #ea580c;"><i class="fas fa-truck-fast"></i></span>
+                    نظام شركات شحن كروت الديبت
+                </h2>
+
+                <div class="card card-accent-top" style="margin-bottom: 1.25rem;">
+                    <h3 class="mini-card-title"><i class="fas fa-truck"></i> شركات الشحن الأربعة المعتمدة</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3" style="display: grid; margin-bottom: 1rem;">
+                        <div class="pill pill-accent" style="padding: 0.75rem; justify-content: center; font-size: 0.9rem; font-weight: 700;">Smart</div>
+                        <div class="pill" style="padding: 0.75rem; justify-content: center; font-size: 0.9rem; font-weight: 700; background: #e0e7ff; color: #4338ca;">ABS</div>
+                        <div class="pill" style="padding: 0.75rem; justify-content: center; font-size: 0.9rem; font-weight: 700; background: #cffafe; color: #155e75;">Skybag</div>
+                        <div class="pill" style="padding: 0.75rem; justify-content: center; font-size: 0.9rem; font-weight: 700;">Union</div>
+                    </div>
+                    <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;"><i class="fas fa-search" style="color: var(--accent);"></i> طرق البحث</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2" style="display: grid;">
+                        <div style="padding: 0.625rem 0.875rem; border-radius: 0.5rem; background: var(--bg-soft); display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+                            <span class="step-num">1</span> رقم الهاتف
+                        </div>
+                        <div style="padding: 0.625rem 0.875rem; border-radius: 0.5rem; background: var(--bg-soft); display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+                            <span class="step-num">2</span> Customer ID
+                        </div>
+                        <div style="padding: 0.625rem 0.875rem; border-radius: 0.5rem; background: var(--bg-soft); display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+                            <span class="step-num">3</span> Customer ID + آخر 4 أرقام
+                        </div>
+                        <div style="padding: 0.625rem 0.875rem; border-radius: 0.5rem; background: var(--bg-soft); display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+                            <span class="step-num">4</span> Customer ID + 0 + كود الفرع + آخر 4
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4" style="display: grid;">
+                    <div class="card card-success">
+                        <h3 class="mini-card-title" style="color: #047857;"><i class="fas fa-file-signature"></i> الطلبات (على موقع شركة الشحن)</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">بشرط اتصال العميل من رقم مسجل، ومدة التنفيذ <b>3 أيام عمل</b>.</p>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span><b>تغيير رقم الهاتف:</b> لتحديث تليفون استلام المندوب</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>تغيير مكان التسليم:</b> لتعديل عنوان الشحنة</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>استعجال الشحنة:</b> إذا لم يمر 5 أيام عمل</span></li>
+                        </ul>
+                    </div>
+                    <div class="card card-danger">
+                        <h3 class="mini-card-title" style="color: #b91c1c;"><i class="fas fa-exclamation-circle"></i> الشكاوى (على نظام سيبيل فقط)</h3>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span><b>عدم وصول الكارت:</b> مر 5 أيام عمل على الإصدار</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>سوء معاملة المندوب:</b> طلب فلوس أو عدم التزام بالموعد</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span><b>التأخر (حالتين):</b> مر أكثر من 5 أيام أو وُزّع على 3 شركات</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== SYSTEMS TAB ====== -->
+            <div class="tab-content searchable-section" id="systems">
+                <h2 class="section-title">
+                    <span class="icon-wrap"><i class="fas fa-laptop-code"></i></span>
+                    أنظمة البحث والخدمات المساعدة
+                </h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4" style="display: grid;">
+                    <div class="card card-accent-top">
+                        <h3 class="mini-card-title"><i class="fas fa-search"></i> طرق البحث على نظام Power</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.875rem;">المسار: View ➔ Customer view</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="padding: 0.75rem; border-radius: 0.625rem; background: var(--bg-soft); display: flex; align-items: center; gap: 0.625rem;">
+                                <span class="step-num">1</span>
+                                <span style="font-size: 0.875rem;"><b>الرقم القومي:</b> في <span class="code-tag">Client code</span> + <b style="color: var(--accent);">000</b></span>
+                            </div>
+                            <div style="padding: 0.75rem; border-radius: 0.625rem; background: var(--bg-soft); display: flex; align-items: center; gap: 0.625rem;">
+                                <span class="step-num">2</span>
+                                <span style="font-size: 0.875rem;"><b>الشادو:</b> في <span class="code-tag">credit account</span></span>
+                            </div>
+                            <div style="padding: 0.75rem; border-radius: 0.625rem; background: var(--bg-soft); display: flex; align-items: center; gap: 0.625rem;">
+                                <span class="step-num">3</span>
+                                <span style="font-size: 0.875rem;"><b>رقم التليفون:</b> في <span class="code-tag">Phone 1</span> + <b style="color: var(--accent);">2</b> قبل الرقم</span>
+                            </div>
+                            <div style="padding: 0.75rem; border-radius: 0.625rem; background: var(--bg-soft); display: flex; align-items: center; gap: 0.625rem;">
+                                <span class="step-num">4</span>
+                                <span style="font-size: 0.875rem;"><b>البحث بالاسم</b></span>
+                            </div>
+                        </div>
+                        <div class="alert alert-info" style="margin-top: 1rem;">
+                            <div class="alert-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div><b>Profile > current:</b> نوع الكارت فقط = سداد 5% · نوع + <b style="color: #dc2626;">F</b> = سداد 100% خصماً تلقائياً.</div>
+                        </div>
+                    </div>
+                    <div class="card" style="background: linear-gradient(180deg, var(--accent-soft) 0%, var(--bg-card) 100%);">
+                        <h3 class="mini-card-title"><i class="fas fa-circle-notch fa-spin" style="color: var(--gold);"></i> شاشة 360 API Contract</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.875rem;">كل منتجات العميل القائمة فوراً:</p>
+                        <ul class="check-list">
+                            <li><i class="fas fa-circle bullet"></i><span>مراجعة كل الكروت وحدود المشتريات</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span>جميع الشهادات والقروض بكافة تفاصيلها</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span>الحسابات القائمة (Dormant أو لا)</span></li>
+                            <li><i class="fas fa-exclamation-triangle" style="color: #ef4444; font-size: 0.7rem;"></i><span style="color: #b91c1c; font-weight: 600;">الرصيد الظاهر Current، للمتاح ادخل تفاصيل الحساب!</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span>متابعة الشكاوى والطلبات</span></li>
+                            <li><i class="fas fa-circle bullet"></i><span>الخدمات الإلكترونية (BM Online)</span></li>
+                        </ul>
+                    </div>
+                    <div class="card" style="background: var(--gradient-primary); color: white; border: none; grid-column: 1 / -1;">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="display: grid;">
+                            <div>
+                                <h4 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; font-weight: 700; color: var(--gold); margin-bottom: 0.75rem;">
+                                    <i class="fas fa-microphone-alt"></i> الخدمة الصوتية للعميل
+                                </h4>
+                                <div class="grid grid-cols-2 gap-2" style="display: grid;">
+                                    <div style="padding: 0.625rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                                        <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 0.15rem;">إنشاء (Generate)</div>
+                                        <div style="font-size: 0.75rem; font-weight: 600;">للعميل الجديد</div>
+                                    </div>
+                                    <div style="padding: 0.625rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                                        <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 0.15rem;">إلغاء (Delete)</div>
+                                        <div style="font-size: 0.75rem; font-weight: 600;">للإلغاء أو تجاوز الحدود</div>
+                                    </div>
+                                    <div style="padding: 0.625rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                                        <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 0.15rem;">إعادة تعيين (Reset)</div>
+                                        <div style="font-size: 0.75rem; font-weight: 600;">نسيان الرقم السري</div>
+                                    </div>
+                                    <div style="padding: 0.625rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                                        <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 0.15rem;">إضافة (Add)</div>
+                                        <div style="font-size: 0.75rem; font-weight: 600;">لربط منتج جديد</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; font-weight: 700; color: var(--gold); margin-bottom: 0.75rem;">
+                                    <i class="fas fa-headset"></i> الشكاوى عبر نظام سيبيل (Siebel)
+                                </h4>
+                                <p style="font-size: 0.8rem; opacity: 0.9; line-height: 1.6; margin-bottom: 0.75rem;">جميع طلبات الفروع والـ 19888 تظهر أسفل يسار 360 API.</p>
+                                <div style="padding: 0.75rem; border-radius: 0.625rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); font-size: 0.8rem; line-height: 1.5;">
+                                    🔍 <b>Prospect (بلا بروفايل):</b> service request ➔ all service request ➔ SR number ➔ Enter.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ====== SETTINGS PANEL ====== -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-palette"></i> المظهر</div>
+            <div class="settings-row">
+                <div class="settings-row-label">
+                    <i class="fas fa-moon" style="color: var(--accent);"></i>
+                    <div>الوضع الليلي<small>تبديل الثيم</small></div>
+                </div>
+                <button class="toggle" id="darkToggle" onclick="toggleDark()" aria-label="تبديل"></button>
+            </div>
+        </div>
+
+        <div class="settings-divider"></div>
+
+        <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-swatchbook"></i> لون الثيم</div>
+            <div class="swatch-row">
+                <div class="swatch active" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6);" data-color="blue" onclick="setColor('blue')"></div>
+                <div class="swatch" style="background: linear-gradient(135deg, #b8860b, #fbbf24);" data-color="gold" onclick="setColor('gold')"></div>
+                <div class="swatch" style="background: linear-gradient(135deg, #047857, #10b981);" data-color="green" onclick="setColor('green')"></div>
+                <div class="swatch" style="background: linear-gradient(135deg, #6d28d9, #a78bfa);" data-color="purple" onclick="setColor('purple')"></div>
+                <div class="swatch" style="background: linear-gradient(135deg, #b91c1c, #f87171);" data-color="red" onclick="setColor('red')"></div>
+            </div>
+        </div>
+
+        <div class="settings-divider"></div>
+
+        <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-file-export"></i> تصدير</div>
+            <button onclick="exportPDF()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem; border-radius: 0.625rem; font-weight: 600; font-size: 0.875rem; color: white; background: var(--gradient-primary); border: none; cursor: pointer; box-shadow: var(--shadow-sm);">
+                <i class="fas fa-file-pdf"></i> تصدير PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- ====== FAB (Mobile) ====== -->
+    <div class="fab-group" id="fabGroup">
+        <button class="fab" onclick="exportPDF()" title="تصدير PDF" aria-label="PDF">
+            <i class="fas fa-file-pdf"></i>
+        </button>
+        <button class="fab" onclick="scrollToTop()" title="للأعلى" aria-label="للأعلى" id="scrollTopBtn" style="display: none;">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        const S = { tab: 'verif', theme: 'light', color: 'blue', searching: false };
+
+        const COLORS = {
+            blue:   { accent: '#1e3a8a', accentLight: '#dbeafe', accentSoft: '#eff6ff', accentHover: '#1e40af', glow: 'rgba(30, 58, 138, 0.15)' },
+            gold:   { accent: '#b8860b', accentLight: '#fef3c7', accentSoft: '#fffbeb', accentHover: '#92400e', glow: 'rgba(184, 134, 11, 0.15)' },
+            green:  { accent: '#047857', accentLight: '#dcfce7', accentSoft: '#f0fdf4', accentHover: '#065f46', glow: 'rgba(4, 120, 87, 0.15)' },
+            purple: { accent: '#6d28d9', accentLight: '#ede9fe', accentSoft: '#faf5ff', accentHover: '#5b21b6', glow: 'rgba(109, 40, 217, 0.15)' },
+            red:    { accent: '#b91c1c', accentLight: '#fee2e2', accentSoft: '#fef2f2', accentHover: '#991b1b', glow: 'rgba(185, 28, 28, 0.15)' }
+        };
+
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const saved = JSON.parse(localStorage.getItem('kbase-v6') || '{}');
+                if (saved.theme) S.theme = saved.theme;
+                if (saved.color) S.color = saved.color;
+                if (saved.tab) S.tab = saved.tab;
+            } catch(e) {}
+
+            applyAll();
+            buildIndex();
+            setupNav();
+            handleHash();
+            updateDate();
+
+            setInterval(updateDate, 60000);
+
+            const main = document.querySelector('.main-content');
+            if (main) {
+                main.addEventListener('scroll', () => {
+                    const btn = document.getElementById('scrollTopBtn');
+                    if (btn) btn.style.display = main.scrollTop > 300 ? 'flex' : 'none';
+                }, { passive: true });
+            }
+
+            document.addEventListener('pointerdown', e => {
+                const panel = document.getElementById('settingsPanel');
+                if (!panel || !panel.classList.contains('open')) return;
+                if (!e.target.closest('#settingsPanel') && !e.target.closest('[onclick*="toggleSettings"]')) {
+                    closeSettings();
+                }
+            });
+
+            document.addEventListener('keydown', e => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    const inp = document.getElementById('desktopSearchInput');
+                    if (inp) inp.focus();
+                    else toggleMobileSearch();
+                }
+                if (e.key === 'Escape') closeAll();
+            });
+
+            window.addEventListener('hashchange', handleHash);
+        });
+
+        function save() {
+            try { localStorage.setItem('kbase-v6', JSON.stringify({ theme: S.theme, color: S.color, tab: S.tab })); } catch(e) {}
+        }
+
+        function updateDate() {
+            const el = document.getElementById('liveDate');
+            if (!el) return;
+            const d = new Date();
+            const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+            const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+            el.textContent = days[d.getDay()] + ' · ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+        }
+
+        // ===== THEME =====
+        function applyAll() {
+            document.documentElement.setAttribute('data-theme', S.theme);
+            applyColor();
+            document.getElementById('darkToggle')?.classList.toggle('on', S.theme === 'dark');
+            document.querySelectorAll('.swatch').forEach(s => {
+                s.classList.toggle('active', s.dataset.color === S.color);
+            });
+            updateMetaTheme();
+        }
+
+        function applyColor() {
+            const c = COLORS[S.color];
+            document.documentElement.style.setProperty('--accent', c.accent);
+            document.documentElement.style.setProperty('--accent-light', c.accentLight);
+            document.documentElement.style.setProperty('--accent-soft', c.accentSoft);
+            document.documentElement.style.setProperty('--accent-hover', c.accentHover);
+            document.documentElement.style.setProperty('--accent-glow', c.glow);
+        }
+
+        function updateMetaTheme() {
+            const meta = document.getElementById('metaTheme');
+            if (meta) {
+                const darkColors = { blue: '#3b82f6', gold: '#f59e0b', green: '#10b981', purple: '#a78bfa', red: '#f87171' };
+                meta.setAttribute('content', S.theme === 'dark' ? darkColors[S.color] : COLORS[S.color].accent);
+            }
+        }
+
+        function toggleDark() {
+            S.theme = S.theme === 'light' ? 'dark' : 'light';
+            applyAll(); save();
+            toast(S.theme === 'dark' ? '🌙 الوضع الليلي' : '☀️ الوضع النهاري');
+        }
+
+        function setColor(c) {
+            S.color = c;
+            applyAll(); save();
+            closeSettings();
+        }
+
+        // ===== NAVIGATION =====
+        function setupNav() {
+            document.getElementById('sidebarNav').addEventListener('click', e => {
+                const btn = e.target.closest('[data-tab]');
+                if (btn) openTab(btn.dataset.tab);
+            });
+        }
+
+        function openTab(name) {
+            S.tab = name;
+            S.searching = false;
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.getElementById(name)?.classList.add('active');
+            document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.sidebar-btn[data-tab="${name}"]`)?.classList.add('active');
+            const d = document.getElementById('desktopSearchInput');
+            const m = document.getElementById('mobileSearchInput');
+            if (d) d.value = '';
+            if (m) m.value = '';
+            closeAll();
+            const main = document.querySelector('.main-content');
+            if (main) main.scrollTo({ top: 0, behavior: 'smooth' });
+            try { window.history.pushState({tab:name}, '', '#'+name); } catch(e) {}
+            save();
+        }
+
+        function handleHash() {
+            const h = (location.hash || '').replace('#', '');
+            const valid = ['verif','credit','cards','loans','certs','shipping','systems'];
+            if (valid.includes(h) && h !== S.tab) openTab(h);
+        }
+
+        // ===== SEARCH =====
+        let searchIndex = new Map();
+        let searchTimer = null;
+
+        function buildIndex() {
+            searchIndex.clear();
+            document.querySelectorAll('.searchable-section').forEach(s => {
+                searchIndex.set(s.id, (s.textContent || '').toLowerCase());
+            });
+        }
+
+        function runSearch(val) {
+            const d = document.getElementById('desktopSearchInput');
+            const m = document.getElementById('mobileSearchInput');
+            if (d && document.activeElement !== d) d.value = val;
+            if (m && document.activeElement !== m) m.value = val;
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(() => performSearch(val.trim().toLowerCase()), 80);
+        }
+
+        function performSearch(q) {
+            const sections = document.querySelectorAll('.searchable-section');
+            const buttons = document.querySelectorAll('.sidebar-btn');
+            if (!q) {
+                S.searching = false;
+                sections.forEach(s => { s.classList.remove('active'); s.style.display = ''; });
+                openTab(S.tab);
+                return;
+            }
+            S.searching = true;
+            let firstIdx = -1;
+            sections.forEach((s, i) => {
+                const text = searchIndex.get(s.id) || '';
+                const match = text.includes(q);
+                s.classList.add('active');
+                s.style.display = match ? '' : 'none';
+                if (match && firstIdx === -1) firstIdx = i;
+            });
+            buttons.forEach(b => b.classList.remove('active'));
+            if (firstIdx >= 0 && buttons[firstIdx]) buttons[firstIdx].classList.add('active');
+        }
+
+        // ===== SIDEBAR =====
+        function toggleSidebar() {
+            document.querySelector('.sidebar-desktop')?.classList.toggle('open');
+            document.getElementById('backdrop')?.classList.toggle('open');
+        }
+
+        function closeAll() {
+            document.querySelector('.sidebar-desktop')?.classList.remove('open');
+            document.getElementById('backdrop')?.classList.remove('open');
+            document.getElementById('mobileSearch')?.classList.remove('open');
+            closeSettings();
+        }
+
+        // ===== MOBILE SEARCH =====
+        function toggleMobileSearch() {
+            const ms = document.getElementById('mobileSearch');
+            ms?.classList.toggle('open');
+            if (ms?.classList.contains('open')) {
+                setTimeout(() => document.getElementById('mobileSearchInput')?.focus(), 300);
+            } else {
+                const m = document.getElementById('mobileSearchInput');
+                const d = document.getElementById('desktopSearchInput');
+                if (m) m.value = '';
+                if (d) d.value = '';
+                performSearch('');
+            }
+        }
+
+        // ===== SETTINGS =====
+        function toggleSettings(e) {
+            if (e) { e.stopPropagation(); e.preventDefault(); }
+            const panel = document.getElementById('settingsPanel');
+            if (!panel) return;
+            if (panel.classList.contains('open')) { closeSettings(); return; }
+            const btn = (e && e.currentTarget) || document.querySelector('[onclick*="toggleSettings"]');
+            if (btn) {
+                const r = btn.getBoundingClientRect();
+                const isRTL = document.documentElement.dir === 'rtl';
+                const pw = 320, ph = panel.offsetHeight || 360;
+                const margin = 12;
+                let top = r.bottom + 8;
+                let left = isRTL ? r.right - pw : r.left;
+                if (top + ph > window.innerHeight - margin) top = Math.max(margin, r.top - ph - 8);
+                if (left < margin) left = margin;
+                if (left + pw > window.innerWidth - margin) {
+                    // Anchor to right edge of viewport in RTL (left in LTR)
+                    if (isRTL) {
+                        panel.style.right = margin + 'px';
+                        panel.style.left = 'auto';
+                        panel.style.top = top + 'px';
+                        panel.classList.add('open');
+                        return;
+                    } else {
+                        left = window.innerWidth - pw - margin;
+                    }
+                }
+                panel.style.top = top + 'px';
+                if (isRTL) { panel.style.right = left + 'px'; panel.style.left = 'auto'; }
+                else { panel.style.left = left + 'px'; panel.style.right = 'auto'; }
+            }
+            panel.classList.add('open');
+        }
+
+        function closeSettings() {
+            document.getElementById('settingsPanel')?.classList.remove('open');
+        }
+
+        function scrollToTop() {
+            const main = document.querySelector('.main-content');
+            if (main) main.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ===== PDF =====
+        function exportPDF() {
+            if (typeof html2pdf === 'undefined') { toast('⚠️ جاري التحميل...'); return; }
+            toast('📄 جاري التصدير...');
+            closeAll();
+            const main = document.querySelector('.main-content');
+            const sb = document.querySelector('.sidebar-desktop');
+            const mh = document.querySelector('.mobile-header');
+            const dh = document.querySelector('.desktop-header');
+            const fab = document.getElementById('fabGroup');
+            [sb, mh, dh, fab].forEach(el => { if (el) el.style.visibility = 'hidden'; });
+            const opt = {
+                margin: 8, filename: 'kbase-b042.pdf',
+                image: { type: 'jpeg', quality: 0.95 },
+                html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+            html2pdf().set(opt).from(main).save().then(() => {
+                [sb, mh, dh, fab].forEach(el => { if (el) el.style.visibility = ''; });
+                toast('✅ تم تصدير PDF');
+            }).catch(() => {
+                [sb, mh, dh, fab].forEach(el => { if (el) el.style.visibility = ''; });
+                toast('❌ فشل التصدير');
+            });
+        }
+
+        // ===== TOAST =====
+        let toastTimer = null;
+        function toast(msg) {
+            const t = document.getElementById('toast');
+            if (!t) return;
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+        }
+    </script>
+</body>
+</html>

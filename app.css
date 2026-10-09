@@ -1,0 +1,24 @@
+:root{
+--primary:#009dff;
+--bg:#0f141b;
+--card:#161d26;
+--text:#fff;
+--radius:14px;
+--font: Arial, sans-serif;
+--fontSize:15px;
+--fontWeight:400;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:var(--fontSize);font-weight:var(--fontWeight);margin:0}
+a{color:var(--primary);text-decoration:none}
+.card,.section,.box{background:var(--card);border:1px solid #222;border-radius:var(--radius)}
+input,select,textarea{background:#0b0f14;border:1px solid #222;color:var(--text);border-radius:var(--radius);padding:10px;width:100%}
+button{background:var(--primary);border:0;color:#fff;border-radius:var(--radius);padding:10px 16px;cursor:pointer}
+.bubble,.box,.card,.section,td,th{
+overflow-wrap:anywhere;
+word-break:break-word;
+}
+.bubble{
+white-space:pre-wrap;
+max-width:75%;
+}
